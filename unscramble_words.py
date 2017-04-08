@@ -61,10 +61,15 @@ def main(argv):
     parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=False, 
         help="Verbose output", required=False)
 
-    try:
-        # Parsing arguments
-        args = parser.parse_args()
+    # Parsing arguments
+    args = parser.parse_args()
 
+    # Print help and exit if there are not enough arguments
+    if len(argv) < 3:
+        parser.print_help()
+        sys.exit(1)
+
+    try:
         # Optional arguments
         verbose = args.verbose
         drop = args.drop
