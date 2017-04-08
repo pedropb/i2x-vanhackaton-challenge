@@ -25,6 +25,7 @@ def unscramble(scrambled_file, word_vocab):
     return unscrambled
 
 def accuracy(text):
+    """Returns the number of unrecognized characters"""
     return sum(1 for c in text if c.isupper())
 
 def main(argv):
