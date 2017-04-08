@@ -3,24 +3,20 @@
 from __future__ import print_function
 import sys, argparse, re
 from os.path import isfile
-from numpy import random
 
 def process_text(dict_file):
     """Process 'dict_file' and return a list of unique words sorted by descending word length"""
 
-    text = dict_file.lower()
-    text = re.sub(r"[^a-zA-Z ]", "", text)
-    unique_words = list(set(text.split(" ")))
+    # text = dict_file.lower()
+    # text = text.replace(" ", "")
+    # text = text.replace("\n", " ")
+    # text = re.sub(r"[^a-zA-Z ]", "", text)
+    unique_words = [w for w in set(text.split(" ")) if len(w) > 1 and len(w) < 20]
     unique_words.sort(key=lambda word: len(word), reverse=True)
+    unique_words.append('a', 'i')
 
     return unique_words
 
-def drop_words(word_vocab, n):
-    """Drop n words from 'word_vocab' to simulate unknown words."""
-
-    dropped_words = random.choice([w for w in word_vocab if len(w) >= 3], n, replace=False)
-    dropped_vocab = [w for w in word_vocab if w not in dropped_words]
-    return dropped_vocab, dropped_words
 
 
 def unconcatenate(concatenated_file, word_vocab):
@@ -50,14 +46,8 @@ def main(argv):
         )
     )
 
-    parser.add_argument("dict_file", metavar="dict_file", type=str, 
-        help="A text file containing all words that should be considered for unconcatenating.")
-
     parser.add_argument("concatenated_file", metavar="concatenated_file", type=str, 
         help="File containing the string with all words concatenated")
-
-    parser.add_argument("-d", "--drop", dest="drop", metavar="n", type=int, default=3,
-        help="Number of random words to drop from dictionary, before concatenating (default 3)")
 
     parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=False, 
         help="Verbose output", required=False)
@@ -73,7 +63,6 @@ def main(argv):
     try:
         # Optional arguments
         verbose = args.verbose
-        drop = args.drop
 
         # Checking if input files exist
         if not isfile(args.dict_file):
@@ -103,18 +92,13 @@ def main(argv):
         # Creating word vocabulary
         word_vocab = process_text(dict_file_text)
 
-        # Optionally, removing words from dictionary 
-        if drop > 0:
-            word_vocab, dropped_words = drop_words(word_vocab, n=drop)
-
         # Unconcatenating input
         unconcatenated_text = unconcatenate(concatenated_file_text, word_vocab)
 
         # Verbose output
         if verbose:
-            print("Concatenated text:", concatenated_file_text)
-            print("Dictionary:", word_vocab)
-            print("Words dropped from Dictionary:", dropped_words)
+            print("Concatenated text:", concatenated_file_text[:100])
+            print("Dictionary:", word_vocab[:20])
 
         # Final output
         print("Unconcatenated text:", unconcatenated_text)
