@@ -39,8 +39,11 @@ optional arguments:
 Concatenated text: YouhavejustcompletedalengthydocumentwhenyouhaveanunfortunateFindReplacemishapYouhaveaccidentallyremovedallspacespunctuationandcapitalisationinthedocument
 
 Dictionary: ['capitalisation', 'accidentally', 'unfortunate', 'findreplace', 'punctuation', 'completed', 'document', 'lengthy', 'removed', 'mishap', 'spaces', 'have', 'all', 'you', 'the', 'in', 'an', 'a']
+
 Words dropped from Dictionary: ['just' 'and' 'when']
+
 Unconcatenated text: you  have JUST completed  a  lengthy  document WHEN you  have  an  unfortunate  findreplace  mishap  you  have  accidentally  removed  all  spaces  punctuation  an D capitalisation  in  the  document
+
 Unrecognized characters:  9
 </details>
 
@@ -49,10 +52,12 @@ Unrecognized characters:  9
 Concatenated text: YoufigurethatyoucanaddbackinthepunctationandcapitalisationlateronceyougettheindividualwordsproperlyseparatedMostofthew
 ordswillbeinadictionarybutsomestringslikepropernameswillnot
 
-Dictionary: ['capitalisation', 'individual', 'dictionary', 'punctation', 'separated', 'strings', 'figure', 'proper', 'names', 'words', 'l
-ater', 'some', 'back', 'that', 'most', 'like', 'will', 'once', 'get', 'add', 'you', 'not', 'can', 'the', 'in', 'be', 'of', 'a']
+Dictionary: ['capitalisation', 'individual', 'dictionary', 'punctation', 'separated', 'strings', 'figure', 'proper', 'names', 'words', 'later', 'some', 'back', 'that', 'most', 'like', 'will', 'once', 'get', 'add', 'you', 'not', 'can', 'the', 'in', 'be', 'of', 'a']
+
 Words dropped from Dictionary: ['properly' 'but' 'and']
+
 Unconcatenated text: you  figure  that  you  can  add  back  in  the  punctation  a ND capitalisation  later  once  you  get  the  individual  words  proper LY separated  most  of  the  words  will  be  in  a  dictionary BUT some  strings  like  proper  names  will  not
+
 Unrecognized characters:  7
 </details>
 
