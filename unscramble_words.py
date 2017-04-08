@@ -18,7 +18,7 @@ def process_text(dict_file):
 def drop_words(word_vocab, n=3):
     """Drop n words from 'word_vocab' to simulate unknown words."""
 
-    dropped_words = random.choice(word_vocab, n)
+    dropped_words = random.choice([w for w in word_vocab if len(w) >= 3], n, replace=False)
     dropped_vocab = [w for w in word_vocab if w not in dropped_words]
     return dropped_vocab, dropped_words
 
@@ -28,7 +28,7 @@ def unscramble(scrambled_file, word_vocab):
 
     scrambled = scrambled_file.upper()
     for word in word_vocab:
-        scrambled.replace(word.upper(), " " + word + " ")
+        scrambled = scrambled.replace(word.upper(), " " + word + " ")
     
     unscrambled = scrambled.strip()
 
@@ -65,7 +65,7 @@ def main(argv):
     args = parser.parse_args()
 
     # Print help and exit if there are not enough arguments
-    if len(argv) < 3:
+    if len(argv) < 2:
         parser.print_help()
         sys.exit(1)
 
