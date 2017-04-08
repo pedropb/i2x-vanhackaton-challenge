@@ -6,6 +6,7 @@
 
 ```
 $ git clone https://github.com/pedropb/i2x-challenge
+$ pip install -r requirements.txt
 ```
 
 ## Usage

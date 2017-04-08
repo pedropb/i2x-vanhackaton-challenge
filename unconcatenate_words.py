@@ -4,7 +4,7 @@ from __future__ import print_function
 import dataset_tools
 import sys, argparse, os
 from collections import Counter
-import pickle
+from six.moves import cPickle as pickle
 
 def process_dict(text, frequency_threshold):
     """
