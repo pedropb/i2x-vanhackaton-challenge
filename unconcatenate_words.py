@@ -124,8 +124,8 @@ def main(argv):
 
     parser.add_argument("-t", "--frequency-threshold", dest="frequency_threshold", type=float, default=0.001, 
         help=(
-            "Frequency threshold (in %) for considering words from the corpus dictionary (Default: 0.001)."
-            " For example, words that appear on the corpus dictionary less than 0.001% won't be used."
+            "Frequency threshold (in %%) for considering words from the corpus dictionary (Default: 0.001)."
+            " For example, words that appear on the corpus dictionary less than 0.001%% won't be used."
         ), required=False)
 
     # Parsing arguments
