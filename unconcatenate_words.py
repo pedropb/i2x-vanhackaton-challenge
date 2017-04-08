@@ -15,7 +15,7 @@ def process_text(dict_file):
 
     return unique_words
 
-def drop_words(word_vocab, n=3):
+def drop_words(word_vocab, n):
     """Drop n words from 'word_vocab' to simulate unknown words."""
 
     dropped_words = random.choice([w for w in word_vocab if len(w) >= 3], n, replace=False)
@@ -23,16 +23,16 @@ def drop_words(word_vocab, n=3):
     return dropped_vocab, dropped_words
 
 
-def unscramble(scrambled_file, word_vocab):
-    """Unscramble 'scrambled_file' using 'word_vocab'. Words that weren't matched will be written in uppercase."""
+def unconcatenate(concatenated_file, word_vocab):
+    """Unconcatenate 'concatenated_file' using 'word_vocab'. Words that weren't matched will be written in uppercase."""
 
-    scrambled = scrambled_file.upper()
+    concatenated = concatenated_file.upper()
     for word in word_vocab:
-        scrambled = scrambled.replace(word.upper(), " " + word + " ")
+        concatenated = concatenated.replace(word.upper(), " " + word + " ")
     
-    unscrambled = scrambled.strip()
+    unconcatenated = concatenated.strip()
 
-    return unscrambled
+    return unconcatenated
 
 def accuracy(text):
     """Returns the number of unrecognized characters"""
@@ -43,20 +43,21 @@ def main(argv):
     # Configuring arguments    
     parser = argparse.ArgumentParser(
         description=(
-            "Unscramble words from a string based on a given dictionary. Words not present on "
+            "Unconcatenate words from a string based on a given dictionary. Words not present on "
             "the dictionary will be written in UPPERCASE on the output and will count towards "
-            "the number of unrecognized characters." 
+            "the number of unrecognized characters. Outputs: the unconcatenated string and the "
+            "number of unrecongized characters." 
         )
     )
 
     parser.add_argument("dict_file", metavar="dict_file", type=str, 
-        help="A text file containing all words that should be considered for unscrambling.")
+        help="A text file containing all words that should be considered for unconcatenating.")
 
-    parser.add_argument("scrambled_file", metavar="scrambled_file", type=str, 
-        help="File containing the string with all words scrambled")
+    parser.add_argument("concatenated_file", metavar="concatenated_file", type=str, 
+        help="File containing the string with all words concatenated")
 
     parser.add_argument("-d", "--drop", dest="drop", metavar="n", type=int, default=3,
-        help="Number of random words to drop from dictionary, before scrambling")
+        help="Number of random words to drop from dictionary, before concatenating (default 3)")
 
     parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=False, 
         help="Verbose output", required=False)
@@ -79,8 +80,8 @@ def main(argv):
             print("Invalid argument: dict_file == " + args.dict_file)
             return
         
-        if not isfile(args.scrambled_file):
-            print("Invalid argument: scrambled_file == " + args.scrambled_file)
+        if not isfile(args.concatenated_file):
+            print("Invalid argument: concatenated_file == " + args.concatenated_file)
             return
         
         # Reading files
@@ -92,12 +93,12 @@ def main(argv):
         if len(dict_file_text.strip()) == 0:
             print("dict_file is empty.")
         
-        scrambled_file_text = ""
-        with open(args.scrambled_file) as f:
-            scrambled_file_text = f.read()
+        concatenated_file_text = ""
+        with open(args.concatenated_file) as f:
+            concatenated_file_text = f.read()
 
-        if len(scrambled_file_text.strip()) == 0:
-            print("scrambled_file is empty.")
+        if len(concatenated_file_text.strip()) == 0:
+            print("concatenated_file is empty.")
               
         # Creating word vocabulary
         word_vocab = process_text(dict_file_text)
@@ -106,18 +107,18 @@ def main(argv):
         if drop > 0:
             word_vocab, dropped_words = drop_words(word_vocab, n=drop)
 
-        # Unscrambling input
-        unscrambled_text = unscramble(scrambled_file_text, word_vocab)
+        # Unconcatenating input
+        unconcatenated_text = unconcatenate(concatenated_file_text, word_vocab)
 
         # Verbose output
         if verbose:
-            print("Scrambled text:", scrambled_file_text)
+            print("Concatenated text:", concatenated_file_text)
             print("Dictionary:", word_vocab)
             print("Words dropped from Dictionary:", dropped_words)
 
         # Final output
-        print("Unscrambled text:", unscrambled_text)
-        print("Unrecognized characters: ", accuracy(unscrambled_text))
+        print("Unconcatenated text:", unconcatenated_text)
+        print("Unrecognized characters: ", accuracy(unconcatenated_text))
 
     except IOError as err:
         print(err.filename, err.message)
