@@ -1,4 +1,4 @@
-# i2x Vanhackaton challenge of 2017.
+# i2x Vanhackaton challenge 2017.
 
 `unconcatenate_words.py` is a tool to unconcatenate strings (as "iwanttogotoberlin" -> "i want to go to berlin") using the [text8 dataset](http://mattmahoney.net/dc/textdata) as a corpus dictionary.
 
