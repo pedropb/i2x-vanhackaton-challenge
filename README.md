@@ -36,34 +36,22 @@ optional arguments:
 ## Examples
 
 <details>
-<summary><pre>$ ./unconcatenate_words.py examples/dicts/text1 examples/concat/text1 -v</pre></summary>
+<summary><pre>$ ./unconcatenate_words.py examples/text1</pre></summary>
+Found and verified text8.zip
 Concatenated text: YouhavejustcompletedalengthydocumentwhenyouhaveanunfortunateFindReplacemishapYouhaveaccidentallyremovedallspacespunctuationandcapitalisationinthedocument
 
-&nbsp;
+Unconcatenated text: you  have  just  completed  a  lengthy  document  when  you  have  an  unfortunate  find  replace  mishap  you  have  accidentally  removed  all  spaces  punctuation  and  capitalisation  in  the  document
 
-Dictionary: ['capitalisation', 'accidentally', 'unfortunate', 'findreplace', 'punctuation', 'completed', 'document', 'lengthy', 'removed', 'mishap', 'spaces', 'have', 'all', 'you', 'the', 'in', 'an', 'a']
-
-Words dropped from Dictionary: ['just' 'and' 'when']
-
-Unconcatenated text: you  have JUST completed  a  lengthy  document WHEN you  have  an  unfortunate  findreplace  mishap  you  have  accidentally  removed  all  spaces  punctuation  an D capitalisation  in  the  document
-
-Unrecognized characters:  9
+Unrecognized characters:  0
 </details>
 
 <details>
-<summary><pre>$ ./unconcatenate_words.py examples/dicts/text2 examples/concat/text2 -v</pre></summary>
-Concatenated text: YoufigurethatyoucanaddbackinthepunctationandcapitalisationlateronceyougettheindividualwordsproperlyseparatedMostofthew
-ordswillbeinadictionarybutsomestringslikepropernameswillnot
+<summary><pre>$ ./unconcatenate_words.py examples/text2</pre></summary>
+Found and verified text8.zip
+Concatenated text: YoufigurethatyoucanaddbackinthepunctationandcapitalisationlateronceyougettheindividualwordsproperlyseparatedMostofthewordswillbeinadictionarybutsomestringslikepropernameswillnot
 
-&nbsp;
-
-Dictionary: ['capitalisation', 'individual', 'dictionary', 'punctation', 'separated', 'strings', 'figure', 'proper', 'names', 'words', 'later', 'some', 'back', 'that', 'most', 'like', 'will', 'once', 'get', 'add', 'you', 'not', 'can', 'the', 'in', 'be', 'of', 'a']
-
-Words dropped from Dictionary: ['properly' 'but' 'and']
-
-Unconcatenated text: you  figure  that  you  can  add  back  in  the  punctation  a ND capitalisation  later  once  you  get  the  individual  words  proper LY separated  most  of  the  words  will  be  in  a  dictionary BUT some  strings  like  proper  names  will  not
-
-Unrecognized characters:  7
+Unconcatenated text: you  figure  that  you  cana  dd  back  int  hep  unc T ation  and  capitalisation  later  once  you  get  the  individual  words  properly  separated  most  oft  he  words  will  bein  a  dictionary  but  some  strings  like  proper  names  wil  lnot
+Unrecognized characters:  1
 </details>
 
 ## Remarks
