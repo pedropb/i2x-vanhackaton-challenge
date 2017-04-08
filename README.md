@@ -34,7 +34,7 @@ optional arguments:
 
 ## Examples
 
-```
+<details>
 $ ./unconcatenate_words.py examples/dicts/text1 examples/concat/text1 -v
 Concatenated text: YouhavejustcompletedalengthydocumentwhenyouhaveanunfortunateFindReplacemishapYouhaveaccidentallyremovedallspacespunctuationandcapitalisationinthedocument
 
@@ -42,9 +42,9 @@ Dictionary: ['capitalisation', 'accidentally', 'unfortunate', 'findreplace', 'pu
 Words dropped from Dictionary: ['just' 'and' 'when']
 Unconcatenated text: you  have JUST completed  a  lengthy  document WHEN you  have  an  unfortunate  findreplace  mishap  you  have  accidentally  removed  all  spaces  punctuation  an D capitalisation  in  the  document
 Unrecognized characters:  9
-```
+</details>
 
-```
+<details>
 $ ./unconcatenate_words.py examples/dicts/text2 examples/concat/text2 -v
 Concatenated text: YoufigurethatyoucanaddbackinthepunctationandcapitalisationlateronceyougettheindividualwordsproperlyseparatedMostofthew
 ordswillbeinadictionarybutsomestringslikepropernameswillnot
@@ -54,7 +54,7 @@ ater', 'some', 'back', 'that', 'most', 'like', 'will', 'once', 'get', 'add', 'yo
 Words dropped from Dictionary: ['properly' 'but' 'and']
 Unconcatenated text: you  figure  that  you  can  add  back  in  the  punctation  a ND capitalisation  later  once  you  get  the  individual  words  proper LY separated  most  of  the  words  will  be  in  a  dictionary BUT some  strings  like  proper  names  will  not
 Unrecognized characters:  7
-```
+</details>
 
 ## Remarks
 
