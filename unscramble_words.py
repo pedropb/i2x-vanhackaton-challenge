@@ -38,13 +38,23 @@ def main(argv):
     parser.add_argument("scrambled_file", metavar="scrambled_file", type=argparse.FileType('w'), 
         help="File containing the string with all words scrambled")
 
+    parser.add_argument("-v", "--verbose", action="store_true", default=False, help="Verbose output", required=False)
+
     try:
         args = parser.parse_args()
         text_file = args.text_file
         scrambled_file = args.scrambled_file
+        verbose = args.verbose
 
-        text = process_text(text_file)
-        print(text)
+        word_vocab = process_text(text_file)
+        unscrambled_text = unscramble(scrambled_file, word_vocab)
+
+        if verbose:
+            print("Scrambled text:", scrambled_file.read())
+            print("Dictionary: ", word_vocab)
+
+        print("Unscrambled text:", unscrambled_text)
+        print("Unrecognized characters: ", accuracy(unscrambled_text))
 
     except IOError as err:
         print(err.strerror, "->", err.filename)
