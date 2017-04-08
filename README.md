@@ -1,4 +1,4 @@
-# i2x Vanhackaton challenge 2017.
+# i2x Vanhackaton challenge 2017
 
 `unconcatenate_words.py` is a tool to unconcatenate strings (as "iwanttogotoberlin" -> "i want to go to berlin") using the [text8 dataset](http://mattmahoney.net/dc/textdata) as a corpus dictionary.
 
@@ -43,22 +43,23 @@ $ pip install -r requirements.txt
 ```
 $ cd i2x-challenge
 $ ./unconcatenate_words.py -h
-usage: unconcatenate_words.py [-h] [-d n] [-v] dict_file scrambled_file
+usage: unconcatenate_words.py [-h] [-t FREQUENCY_THRESHOLD] concatenated_file
 
-Unconcatenate words from a string based on a given dictionary. Words not present
-on the dictionary will be written in UPPERCASE on the output and will count
-towards the number of unrecognized characters.
+Unconcatenate words from a string based on a given dictionary. Words not
+present on the dictionary will be written in UPPERCASE on the output and will
+count towards the number of unrecognized characters. Outputs: the
+unconcatenated string and the number of unrecongized characters.
 
 positional arguments:
-dict_file       A text file containing all words that should be considered
-                for unscrambling.
-scrambled_file  File containing the string with all words scrambled
+  concatenated_file     File containing the string with all words concatenated
 
 optional arguments:
--h, --help      show this help message and exit
--d n, --drop n  Number of random words to drop from dictionary, before
-                scrambling
--v, --verbose   Verbose output
+  -h, --help            show this help message and exit
+  -t FREQUENCY_THRESHOLD, --frequency-threshold FREQUENCY_THRESHOLD
+                        Frequency threshold (in %) for considering words from
+                        the corpus dictionary (Default: 0.001). For example,
+                        words that appear on the corpus dictionary less than
+                        0.001% won't be used.
 ```
 
 
