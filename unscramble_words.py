@@ -4,22 +4,28 @@ from __future__ import print_function
 import sys, argparse, re
 
 def process_text(text_file):
-    """Process input text file and return a list of unique words sorted by 
-    descending word length"""
+    """Process input text file and return a list of unique words sorted by descending word length"""
 
-    text = text_file.read()
+    text = text_file.read().lower()
     text = re.sub(r"[^a-zA-Z ]", "", text)
     unique_words = list(set(text.split(" ")))
     unique_words.sort(key=lambda word: len(word), reverse=True)
 
     return unique_words
 
-def process_scrambled(scrambled_file):
-    # TODO: process the scrambled file, splitting the string in words
-    # present on the dictionary. This should minimize the number of
-    # unknown words
+def unscramble(scrambled_file, word_vocab):
+    """Unscramble scrambled_file using word_vocab. Words that weren't matched will be written in uppercase."""
 
-    return None
+    scrambled = scrambled_file.read().upper()
+    for word in word_vocab:
+        scrambled.replace(word.upper(), " " + word + " ")
+    
+    unscrambled = scrambled.trim()
+
+    return unscrambled
+
+def accuracy(text):
+    return sum(1 for c in text if c.isupper())
 
 def main(argv):
     # Parsing inputs
