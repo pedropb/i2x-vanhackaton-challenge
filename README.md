@@ -35,7 +35,7 @@ optional arguments:
 ## Examples
 
 <details>
-$ ./unconcatenate_words.py examples/dicts/text1 examples/concat/text1 -v
+<summary>$ ./unconcatenate_words.py examples/dicts/text1 examples/concat/text1 -v</summary>
 Concatenated text: YouhavejustcompletedalengthydocumentwhenyouhaveanunfortunateFindReplacemishapYouhaveaccidentallyremovedallspacespunctuationandcapitalisationinthedocument
 
 Dictionary: ['capitalisation', 'accidentally', 'unfortunate', 'findreplace', 'punctuation', 'completed', 'document', 'lengthy', 'removed', 'mishap', 'spaces', 'have', 'all', 'you', 'the', 'in', 'an', 'a']
@@ -45,7 +45,7 @@ Unrecognized characters:  9
 </details>
 
 <details>
-$ ./unconcatenate_words.py examples/dicts/text2 examples/concat/text2 -v
+<summary>$ ./unconcatenate_words.py examples/dicts/text2 examples/concat/text2 -v</summary>
 Concatenated text: YoufigurethatyoucanaddbackinthepunctationandcapitalisationlateronceyougettheindividualwordsproperlyseparatedMostofthew
 ordswillbeinadictionarybutsomestringslikepropernameswillnot
 
