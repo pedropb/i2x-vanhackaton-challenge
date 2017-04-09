@@ -1,8 +1,9 @@
 #!/usr/bin/python
 
 from __future__ import print_function
-import dataset_tools
 import sys, argparse, os
+sys.path.append('../dataset_tools')
+import dataset_tools
 from collections import Counter
 from six.moves import cPickle as pickle
 
