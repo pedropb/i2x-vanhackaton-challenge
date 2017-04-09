@@ -2,3 +2,4 @@
 text8.zip
 *.pickle
 *.pyc
+*/.ipynb_checkpoints/**
