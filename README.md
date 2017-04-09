@@ -2,6 +2,7 @@
 
 `unconcatenate_words.py` is a tool to unconcatenate strings (as "iwanttogotoberlin" -> "i want to go to berlin") using the [text8 dataset](http://mattmahoney.net/dc/textdata) as a corpus dictionary.
 
+**WARNING:** This project is deprecated. I found this [reference](http://nbviewer.jupyter.org/url/norvig.com/ipython/How%20to%20Do%20Things%20with%20Words.ipynb) which describes the problem of word segmentation in detail, and I will be implementing a solution on [another repo](https://github.com/pedropb/i2x-word-segmentation-challenge)
 
 **Table of Contents**
 <!-- toc -->
